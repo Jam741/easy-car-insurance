@@ -1,6 +1,12 @@
+### Output ###
 /target/
-!.mvn/wrapper/maven-wrapper.jar
 
+### Maven ###
+.mvn
+mvnw
+mvnw.cmd
+
+### Mac ###
 .DS_Store
 
 ### STS ###
