@@ -1,16 +1,17 @@
 package com.ngls.user.domain;
 
-import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
 
-public class UserDemo {
+/**
+ * @author Kixs
+ * @version 1.0, 2018/6/30
+ */
+public class UserJPADemo implements Serializable {
 
-    @ApiModelProperty("用户id")
     private Long id;
 
-    @ApiModelProperty("用户姓名")
     private String name;
 
-    @ApiModelProperty("用户年龄")
     private int age;
 
     public Long getId() {

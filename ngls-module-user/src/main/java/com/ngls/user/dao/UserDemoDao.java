@@ -1,15 +1,11 @@
 package com.ngls.user.dao;
 
 import com.ngls.user.domain.UserDemo;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 
-/**/
-
-@Component
-@Mapper
+@Repository
 public interface UserDemoDao {
 
     UserDemo find(@Param("id") Long id);

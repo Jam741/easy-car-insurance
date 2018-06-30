@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ngls-module-user</artifactId>
-    <version>${ngls-module-user.version}</version>
+    <artifactId>ngls-common-utils</artifactId>
+    <version>${ngls-common-utils.version}</version>
+
 
 </project>
