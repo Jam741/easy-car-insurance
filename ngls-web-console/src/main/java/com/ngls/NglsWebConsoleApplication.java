@@ -1,4 +1,4 @@
-package com.ngls.web.console;
+package com.ngls;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
