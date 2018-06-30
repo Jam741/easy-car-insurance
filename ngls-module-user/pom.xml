@@ -5,62 +5,11 @@
     <parent>
         <artifactId>easy-car-insurance</artifactId>
         <groupId>com.ngls</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${parent.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ngls-module-user</artifactId>
-    
-    <build>
-        <pluginManagement>
-            <plugins>
-                <!-- deploy插件用于把Maven自动构建生成的版本发布到中央代理仓库如Nexus服务器上 -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <configuration>
-                        <!-- 跳过部署 -->
-                        <skip>false</skip>
-                    </configuration>
-                </plugin>
+    <version>${ngls-module-user.version}</version>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                        <nonFilteredFileExtensions>
-                            <nonFilteredFileExtension>pem</nonFilteredFileExtension>
-                            <nonFilteredFileExtension>pfx</nonFilteredFileExtension>
-                            <nonFilteredFileExtension>p12</nonFilteredFileExtension>
-                        </nonFilteredFileExtensions>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </plugin>
-
-            </plugins>
-
-        </pluginManagement>
-
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-
-        <testResources>
-            <testResource>
-                <directory>${project.basedir}/src/main/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
-    </build>
 </project>

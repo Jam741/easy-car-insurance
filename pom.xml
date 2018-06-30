@@ -5,7 +5,7 @@
 
     <groupId>com.ngls</groupId>
     <artifactId>easy-car-insurance</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${parent.version}</version>
     <packaging>pom</packaging>
 
     <name>easy-car-insurance</name>
@@ -25,10 +25,57 @@
     </modules>
 
     <properties>
+        <!-- 模块属性配置 -->
+        <parent.version>0.0.1-SNAPSHOT</parent.version>
+        <ngls-web-customer.version>0.0.1-SNAPSHOT</ngls-web-customer.version>
+        <ngls-web-console.version>0.0.1-SNAPSHOT</ngls-web-console.version>
+        <ngls-module-user.version>0.0.1-SNAPSHOT</ngls-module-user.version>
+
+        <!-- 工程基础属性 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
+        <!-- 依赖配置 -->
+        <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
+        <druid.version>1.0.25</druid.version>
     </properties>
+
+    <!-- 依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 模块依赖 -->
+            <dependency>
+                <groupId>com.ngls</groupId>
+                <artifactId>ngls-web-console</artifactId>
+                <version>${ngls-web-console.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ngls</groupId>
+                <artifactId>ngls-web-customer</artifactId>
+                <version>${ngls-web-customer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ngls</groupId>
+                <artifactId>ngls-module-user</artifactId>
+                <version>${ngls-module-user.version}</version>
+            </dependency>
+
+            <!-- MyBatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+
+            <!-- alibaba的druid数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -38,7 +85,6 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
         </dependency>
 
         <dependency>
@@ -72,7 +118,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.25</version>
         </dependency>
     </dependencies>
 
