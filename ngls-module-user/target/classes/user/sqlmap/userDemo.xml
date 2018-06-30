@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ngls.user.dao.UserDemoDao">
+
+    <select id="find" resultType="com.ngls.user.domain.UserDemo">
+        SELECT id, `name`, age FROM user_demo
+        where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.ngls.user.domain.UserDemo" useGeneratedKeys="true" keyProperty="userDemo.id">
+        INSERT into user_demo(`name`, `age`)
+        values ( #{userDemo.name}, #{userDemo.age} )
+    </insert>
+
+</mapper>
