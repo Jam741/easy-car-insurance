@@ -1,4 +1,4 @@
-package com.ngls.web.customer.controller;
+package com.ngls.web.customer.controller.user;
 
 
 import com.ngls.common.util.mvc.support.ApiResult;
