@@ -12,4 +12,10 @@
     <artifactId>ngls-module-user</artifactId>
     <version>${ngls-module-user.version}</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.ngls</groupId>
+            <artifactId>ngls-common-utils</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -45,6 +45,13 @@
         <guava.version>18.0</guava.version>
         <springfox-swagger2.version>2.6.1</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.6.1</springfox-swagger-ui.version>
+        <jackson.mapper.asl.version>1.9.13</jackson.mapper.asl.version>
+        <fastxml.jackson.version>2.8.5</fastxml.jackson.version>
+        <fastxml.jackson.version>2.8.5</fastxml.jackson.version>
+        <fastxml.jackson.version>2.8.5</fastxml.jackson.version>
+        <fastxml.jackson.version>2.8.5</fastxml.jackson.version>
+        <fastxml.jackson.version>2.8.5</fastxml.jackson.version>
+        <org.json.version>20140107</org.json.version>
     </properties>
 
     <!-- 依赖管理 -->
@@ -110,15 +117,54 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger-ui.version}</version>
             </dependency>
+
+            <!-- json start -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jackson.mapper.asl.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${fastxml.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${fastxml.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jaxb-annotations</artifactId>
+                <version>${fastxml.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${fastxml.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${fastxml.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${org.json.version}</version>
+            </dependency>
+            <!-- json end -->
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-        <!-- 公共模块依赖 -->
-        <dependency>
-            <groupId>com.ngls</groupId>
-            <artifactId>ngls-common-utils</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -155,6 +201,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!-- Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
         <!-- alibaba的druid数据库连接池 -->
         <dependency>
@@ -181,6 +232,43 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+
+        <!-- json start -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+        </dependency>
+        <!-- json end -->
     </dependencies>
 
     <!--<build>-->
