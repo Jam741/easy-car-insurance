@@ -1,59 +1,69 @@
-package com.ngls.user.domain;
+package com.ngls.user.dto;
 
-import javax.persistence.*;
+import com.ngls.user.domain.User;
+import com.ngls.user.session.UserSession;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import org.springframework.beans.BeanUtils;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 用户信息
- *
  * @author Kixs
- * @version 1.0, 2018/7/3
+ * @version 1.0, 2018/7/5
  */
-@Table(name = "user")
-public class User implements Serializable {
+@ApiModel
+public class UserDto implements Serializable {
 
-    private static final long serialVersionUID = -431535053464985789L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("用户id")
     public Long id;
 
-    @Column(columnDefinition = "varchar(128) comment '授权用户唯一标识'")
-    private String openId; // 授权用户唯一标识
+    @ApiModelProperty("授权用户唯一标识")
+    private String openId;
 
-    @Column(columnDefinition = "varchar(128) comment '授权用户唯一标识'")
-    private String unionId; //同一个开发平台下 多个应用的unionId一致
+    @ApiModelProperty("同一个开发平台下 多个应用的unionId一致")
+    private String unionId;
 
-    @Column(columnDefinition = "varchar(20) comment 'OAuth2.0认证类型，初期固定为wechat：微信'")
-    private String oauthType; // OAuth2.0认证类型，初期固定为wechat：微信
+    @ApiModelProperty("OAuth2.0认证类型，初期固定为wechat：微信")
+    private String oauthType;
 
-    @Column(columnDefinition = "varchar(50) comment '昵称'")
-    private String nickName; // 昵称
+    @ApiModelProperty("昵称")
+    private String nickName;
 
-    @Column(columnDefinition = "varchar(255) comment '头像'")
-    private String headImage; // 头像
+    @ApiModelProperty("头像")
+    private String headImage;
 
-    @Column(columnDefinition = "varchar(128) comment '授权token'")
-    private String accessToken; // 授权token
+    @ApiModelProperty("授权token")
+    private String accessToken;
 
-    @Column(columnDefinition = "int(11) comment '授权token超时时间（单位：s）'")
-    private Long expiresIn; // 授权token超时时间（单位：s）
+    @ApiModelProperty("授权token超时时间（单位：s）")
+    private Long expiresIn;
 
-    @Column(columnDefinition = "varchar(128) comment '刷新token'")
-    private String refreshToken; // 刷新token
+    @ApiModelProperty("刷新token")
+    private String refreshToken;
 
-    @Column(columnDefinition = "text comment '作用域'")
-    private String scope; // 作用域
+    @ApiModelProperty("作用域")
+    private String scope;
 
-    @Column(columnDefinition = "text comment '第三方用户信息'")
-    private String oauthUserInfo; // 第三方用户信息
+    @ApiModelProperty("第三方用户信息")
+    private String oauthUserInfo;
 
-    @Column(columnDefinition = "datetime comment '创建时间'")
-    private LocalDateTime createTime; // 创建时间
+    @ApiModelProperty("创建时间")
+    private LocalDateTime createTime;
 
-    @Column(columnDefinition = "datetime comment '更新时间'")
-    private LocalDateTime updateTime; // 更新时间
+    @ApiModelProperty("更新时间")
+    private LocalDateTime updateTime;
+
+    @ApiModelProperty("用户会话信息")
+    private UserSession userSession;
+
+    public UserDto() {
+    }
+
+    public UserDto(User user) {
+        BeanUtils.copyProperties(user, this);
+    }
 
     public Long getId() {
         return id;
@@ -157,5 +167,13 @@ public class User implements Serializable {
 
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public UserSession getUserSession() {
+        return userSession;
+    }
+
+    public void setUserSession(UserSession userSession) {
+        this.userSession = userSession;
     }
 }

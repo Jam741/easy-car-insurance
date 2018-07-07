@@ -21,6 +21,10 @@
             <groupId>com.ngls</groupId>
             <artifactId>ngls-module-user</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.ngls</groupId>
+            <artifactId>ngls-common-utils</artifactId>
+        </dependency>
         <!-- module dependency end -->
 
         <dependency>
@@ -73,20 +77,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-
-        <testResources>
-            <testResource>
-                <directory>${project.basedir}/src/main/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
     </build>
 
 

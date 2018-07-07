@@ -1,4 +1,4 @@
-package com.ngls.web.customer;
+package com.ngls;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @EnableAutoConfiguration
 @ServletComponentScan
-@SpringBootApplication(scanBasePackages = "com.ngls")
+@SpringBootApplication
 @MapperScan(basePackages = {"com.ngls.user.dao"})
 public class NglsWebCustomerApplication {
 
