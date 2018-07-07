@@ -11,6 +11,7 @@ import java.util.Date;
  * @author Kixs
  * @version 1.0, 2018/7/4
  */
+@Entity
 @Table(name = "manager")
 public class Manager implements Serializable {
 

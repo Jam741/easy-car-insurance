@@ -5,7 +5,7 @@ import com.ngls.common.util.http.HttpRequestUtils;
 import com.ngls.common.util.mvc.support.ApiResult;
 import com.ngls.user.exception.UserErrorCode;
 import com.ngls.user.support.WechatLogin.ErrorMsg;
-import com.ngls.user.support.WechatLogin.GetAccessToken;
+import com.ngls.user.support.WechatLogin.UserIdentity;
 import com.ngls.user.support.WechatLogin.WechatUserInfo;
 import org.codehaus.jackson.type.TypeReference;
 import org.json.JSONObject;
@@ -27,7 +27,8 @@ public class WechatLoginSupport {
     @Value("${wechat.login.weixin.app.secret}")
     private String weixinSecret;
 
-    private final static String getAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?";
+    // private final static String getAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?";
+    private final static String getAccessTokenUrl = "https://api.weixin.qq.com/sns/jscode2session?";
 
     private final static String refreshAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/refresh_token?";
 
@@ -35,12 +36,12 @@ public class WechatLoginSupport {
 
     private final static String getUserInfoUrl = "https://api.weixin.qq.com/sns/userinfo?";
 
-    private ApiResult<GetAccessToken> parseAccessTokenResult(String resultStr) {
+    private ApiResult<UserIdentity> parseAccessTokenResult(String resultStr) {
         JSONObject jsonObject = new JSONObject(resultStr);
         if (!jsonObject.has("errcode")) {
-            GetAccessToken getAccessToken = JsonUtils.jsonToObject(resultStr, new TypeReference<GetAccessToken>() {
+            UserIdentity userIdentity = JsonUtils.jsonToObject(resultStr, new TypeReference<UserIdentity>() {
             });
-            return ApiResult.succ(getAccessToken);
+            return ApiResult.succ(userIdentity);
         } else {
             ErrorMsg errorMsg = JsonUtils.jsonToObject(resultStr, new TypeReference<ErrorMsg>() {
             });
@@ -49,16 +50,17 @@ public class WechatLoginSupport {
         }
     }
 
-    public ApiResult<GetAccessToken> getAccessToken(String code) {
+    public ApiResult<UserIdentity> getUserIdentity(String code) {
 
         String url = getAccessTokenUrl + "appid=" + weixinAppId + "&secret=" +
-                weixinSecret + "&code=" + code + "&grant_type=authorization_code";
+                weixinSecret + "&js_code=" + code + "&grant_type=authorization_code";
+        System.out.println("getUserIdentity          request_url============" + url);
         String resultStr = HttpRequestUtils.httpRequest(url, "GET", null);
-        System.out.println("getAccessToken          resultStr============" + resultStr);
+        System.out.println("getUserIdentity          resultStr============" + resultStr);
         return parseAccessTokenResult(resultStr);
     }
 
-    public ApiResult<GetAccessToken> refreshAccessToken(String refreshToken) {
+    public ApiResult<UserIdentity> refreshAccessToken(String refreshToken) {
         String url = refreshAccessTokenUrl + "appid=" + weixinAppId + "&grant_type=refresh_token&refresh_token=" +
                 refreshToken;
         String resultStr = HttpRequestUtils.httpRequest(url, "GET", null);

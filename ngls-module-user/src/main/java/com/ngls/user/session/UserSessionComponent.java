@@ -131,19 +131,4 @@ public class UserSessionComponent {
 
         return session;
     }
-
-    /**
-     * IM更换服务商之后，已登录用户获取token时报accid为空，在会获取token时为imUid为空的用户更新imUid
-     *
-     * @param userInfo 新的用户信息
-     */
-    public void updateUserInfo(UserInfo userInfo) {
-        UserSession session = redisTemplate.opsForValue().get(getSessionKey(userInfo));
-        if (session != null) {
-            session.setUserInfo(userInfo);
-            redisTemplate.opsForValue().set(session.getSessionId(), session);
-        }
-    }
-
-
 }

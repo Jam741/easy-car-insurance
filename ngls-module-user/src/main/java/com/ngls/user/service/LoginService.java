@@ -1,7 +1,6 @@
 package com.ngls.user.service;
 
 import com.ngls.common.util.mvc.support.ApiResult;
-import com.ngls.user.dto.CustomerDto;
 import com.ngls.user.dto.UserDto;
 
 import javax.servlet.http.HttpServletRequest;

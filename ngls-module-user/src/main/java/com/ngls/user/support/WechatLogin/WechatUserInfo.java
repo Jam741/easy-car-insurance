@@ -1,31 +1,56 @@
 
 package com.ngls.user.support.WechatLogin;
 
-import java.util.List;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
 
 /**
+ * 微信用户信息
+ *
  * @author Kixs
  * @version 1.0, 2018/7/5
  */
-public class WechatUserInfo {
+public class WechatUserInfo implements Serializable {
 
+    private static final long serialVersionUID = 2405515468673620968L;
+
+    @ApiModelProperty("用户id")
+    private Long userId;
+
+    @ApiModelProperty("openid")
     private String openid;
-    private String nickname;
-    private int sex;
-    private String language;
-    private String province;
-    private String city;
-    private String country;
-    private String headimgurl;
-    private List<String> privilege;
+
+    @ApiModelProperty("unionid")
     private String unionid;
 
-    public String getLanguage() {
-        return language;
+    @ApiModelProperty("昵称")
+    private String nickname;
+
+    @ApiModelProperty("头像")
+    private String avatarUrl;
+
+    @ApiModelProperty("用户的性别，值为1时是男性，值为2时是女性，值为0时是未知")
+    private Integer gender;
+
+    @ApiModelProperty("用户所在城市")
+    private String city;
+
+    @ApiModelProperty("用户所在省份")
+    private String province;
+
+    @ApiModelProperty("用户所在国家")
+    private String country;
+
+    @ApiModelProperty("用户的语言，简体中文为zh_CN")
+    private String language;
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getOpenid() {
@@ -36,6 +61,14 @@ public class WechatUserInfo {
         this.openid = openid;
     }
 
+    public String getUnionid() {
+        return unionid;
+    }
+
+    public void setUnionid(String unionid) {
+        this.unionid = unionid;
+    }
+
     public String getNickname() {
         return nickname;
     }
@@ -44,20 +77,20 @@ public class WechatUserInfo {
         this.nickname = nickname;
     }
 
-    public int getSex() {
-        return sex;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setSex(int sex) {
-        this.sex = sex;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
-    public String getProvince() {
-        return province;
+    public Integer getGender() {
+        return gender;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setGender(Integer gender) {
+        this.gender = gender;
     }
 
     public String getCity() {
@@ -68,6 +101,14 @@ public class WechatUserInfo {
         this.city = city;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
     public String getCountry() {
         return country;
     }
@@ -76,27 +117,11 @@ public class WechatUserInfo {
         this.country = country;
     }
 
-    public String getHeadimgurl() {
-        return headimgurl;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setHeadimgurl(String headimgurl) {
-        this.headimgurl = headimgurl;
-    }
-
-    public List<String> getPrivilege() {
-        return privilege;
-    }
-
-    public void setPrivilege(List<String> privilege) {
-        this.privilege = privilege;
-    }
-
-    public String getUnionid() {
-        return unionid;
-    }
-
-    public void setUnionid(String unionid) {
-        this.unionid = unionid;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

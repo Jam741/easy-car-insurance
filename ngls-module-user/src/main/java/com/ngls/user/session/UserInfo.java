@@ -2,7 +2,6 @@
 package com.ngls.user.session;
 
 import com.ngls.common.util.basic.PrintableBeanUtils;
-import com.ngls.user.dto.CustomerDto;
 import com.ngls.user.dto.UserDto;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -28,6 +27,9 @@ public final class UserInfo implements Serializable {
     @ApiModelProperty("同一个开发平台下 多个应用的unionId一致")
     private String unionId;
 
+    @ApiModelProperty("授权用户会话秘钥")
+    private String sessionKey;
+
     @ApiModelProperty("OAuth2.0认证类型，初期固定为wechat：微信")
     private String oauthType;
 
@@ -35,13 +37,22 @@ public final class UserInfo implements Serializable {
     private String nickName;
 
     @ApiModelProperty("头像")
-    private String headImage;
+    private String avatarUrl;
 
-    @ApiModelProperty("作用域")
-    private String scope;
+    @ApiModelProperty("用户的性别，值为1时是男性，值为2时是女性，值为0时是未知")
+    private Integer gender;
 
-    @ApiModelProperty("第三方用户信息")
-    private String oauthUserInfo;
+    @ApiModelProperty("用户所在城市")
+    private String city;
+
+    @ApiModelProperty("用户所在省份")
+    private String province;
+
+    @ApiModelProperty("用户所在国家")
+    private String country;
+
+    @ApiModelProperty("用户的语言，简体中文为zh_CN")
+    private String language;
 
     @ApiModelProperty("创建时间")
     private LocalDateTime createTime;
@@ -56,11 +67,15 @@ public final class UserInfo implements Serializable {
         this.id = userDto.getId();
         this.openId = userDto.getOpenId();
         this.unionId = userDto.getUnionId();
+        this.sessionKey = userDto.getSessionKey();
         this.oauthType = userDto.getOauthType();
         this.nickName = userDto.getNickName();
-        this.headImage = userDto.getHeadImage();
-        this.scope = userDto.getScope();
-        this.oauthUserInfo = userDto.getOauthUserInfo();
+        this.avatarUrl = userDto.getAvatarUrl();
+        this.gender = userDto.getGender();
+        this.city = userDto.getCity();
+        this.province = userDto.getProvince();
+        this.country = userDto.getCountry();
+        this.language = userDto.getLanguage();
         this.createTime = userDto.getCreateTime();
         this.updateTime = userDto.getUpdateTime();
     }
@@ -94,6 +109,14 @@ public final class UserInfo implements Serializable {
         this.unionId = unionId;
     }
 
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
+    public void setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
+    }
+
     public String getOauthType() {
         return oauthType;
     }
@@ -110,28 +133,52 @@ public final class UserInfo implements Serializable {
         this.nickName = nickName;
     }
 
-    public String getHeadImage() {
-        return headImage;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setHeadImage(String headImage) {
-        this.headImage = headImage;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
-    public String getScope() {
-        return scope;
+    public Integer getGender() {
+        return gender;
     }
 
-    public void setScope(String scope) {
-        this.scope = scope;
+    public void setGender(Integer gender) {
+        this.gender = gender;
     }
 
-    public String getOauthUserInfo() {
-        return oauthUserInfo;
+    public String getCity() {
+        return city;
     }
 
-    public void setOauthUserInfo(String oauthUserInfo) {
-        this.oauthUserInfo = oauthUserInfo;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public LocalDateTime getCreateTime() {
