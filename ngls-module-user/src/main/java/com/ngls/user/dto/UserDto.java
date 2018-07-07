@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 @ApiModel
 public class UserDto implements Serializable {
 
+    private static final long serialVersionUID = -1217579000098509141L;
+
     @ApiModelProperty("用户id")
     public Long id;
 
@@ -25,6 +27,9 @@ public class UserDto implements Serializable {
     @ApiModelProperty("同一个开发平台下 多个应用的unionId一致")
     private String unionId;
 
+    @ApiModelProperty("授权用户会话秘钥")
+    private String sessionKey;
+
     @ApiModelProperty("OAuth2.0认证类型，初期固定为wechat：微信")
     private String oauthType;
 
@@ -32,22 +37,22 @@ public class UserDto implements Serializable {
     private String nickName;
 
     @ApiModelProperty("头像")
-    private String headImage;
+    private String avatarUrl;
 
-    @ApiModelProperty("授权token")
-    private String accessToken;
+    @ApiModelProperty("用户的性别，值为1时是男性，值为2时是女性，值为0时是未知")
+    private Integer gender;
 
-    @ApiModelProperty("授权token超时时间（单位：s）")
-    private Long expiresIn;
+    @ApiModelProperty("用户所在城市")
+    private String city;
 
-    @ApiModelProperty("刷新token")
-    private String refreshToken;
+    @ApiModelProperty("用户所在省份")
+    private String province;
 
-    @ApiModelProperty("作用域")
-    private String scope;
+    @ApiModelProperty("用户所在国家")
+    private String country;
 
-    @ApiModelProperty("第三方用户信息")
-    private String oauthUserInfo;
+    @ApiModelProperty("用户的语言，简体中文为zh_CN")
+    private String language;
 
     @ApiModelProperty("创建时间")
     private LocalDateTime createTime;
@@ -63,6 +68,11 @@ public class UserDto implements Serializable {
 
     public UserDto(User user) {
         BeanUtils.copyProperties(user, this);
+    }
+
+    public UserDto nullSessionKey() {
+        this.sessionKey = null;
+        return this;
     }
 
     public Long getId() {
@@ -89,6 +99,14 @@ public class UserDto implements Serializable {
         this.unionId = unionId;
     }
 
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
+    public void setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
+    }
+
     public String getOauthType() {
         return oauthType;
     }
@@ -105,52 +123,52 @@ public class UserDto implements Serializable {
         this.nickName = nickName;
     }
 
-    public String getHeadImage() {
-        return headImage;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setHeadImage(String headImage) {
-        this.headImage = headImage;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
-    public String getAccessToken() {
-        return accessToken;
+    public Integer getGender() {
+        return gender;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setGender(Integer gender) {
+        this.gender = gender;
     }
 
-    public Long getExpiresIn() {
-        return expiresIn;
+    public String getCity() {
+        return city;
     }
 
-    public void setExpiresIn(Long expiresIn) {
-        this.expiresIn = expiresIn;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getRefreshToken() {
-        return refreshToken;
+    public String getProvince() {
+        return province;
     }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public String getScope() {
-        return scope;
+    public String getCountry() {
+        return country;
     }
 
-    public void setScope(String scope) {
-        this.scope = scope;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getOauthUserInfo() {
-        return oauthUserInfo;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setOauthUserInfo(String oauthUserInfo) {
-        this.oauthUserInfo = oauthUserInfo;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public LocalDateTime getCreateTime() {

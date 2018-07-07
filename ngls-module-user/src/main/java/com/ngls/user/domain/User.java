@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
  * @author Kixs
  * @version 1.0, 2018/7/3
  */
+@Entity
 @Table(name = "user")
 public class User implements Serializable {
 
@@ -25,6 +26,9 @@ public class User implements Serializable {
     @Column(columnDefinition = "varchar(128) comment '授权用户唯一标识'")
     private String unionId; //同一个开发平台下 多个应用的unionId一致
 
+    @Column(columnDefinition = "varchar(128) comment '授权用户会话秘钥'")
+    private String sessionKey;
+
     @Column(columnDefinition = "varchar(20) comment 'OAuth2.0认证类型，初期固定为wechat：微信'")
     private String oauthType; // OAuth2.0认证类型，初期固定为wechat：微信
 
@@ -32,22 +36,22 @@ public class User implements Serializable {
     private String nickName; // 昵称
 
     @Column(columnDefinition = "varchar(255) comment '头像'")
-    private String headImage; // 头像
+    private String avatarUrl; // 头像
 
-    @Column(columnDefinition = "varchar(128) comment '授权token'")
-    private String accessToken; // 授权token
+    @Column(columnDefinition = "int(1) comment '用户的性别，值为1时是男性，值为2时是女性，值为0时是未知'")
+    private Integer gender; // 用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
 
-    @Column(columnDefinition = "int(11) comment '授权token超时时间（单位：s）'")
-    private Long expiresIn; // 授权token超时时间（单位：s）
+    @Column(columnDefinition = "varchar(20) comment '用户所在城市'")
+    private String city; // 用户所在城市
 
-    @Column(columnDefinition = "varchar(128) comment '刷新token'")
-    private String refreshToken; // 刷新token
+    @Column(columnDefinition = "varchar(20) comment '用户所在省份'")
+    private String province; // 用户所在省份
 
-    @Column(columnDefinition = "text comment '作用域'")
-    private String scope; // 作用域
+    @Column(columnDefinition = "varchar(20) comment '用户所在国家'")
+    private String country; // 用户所在国家
 
-    @Column(columnDefinition = "text comment '第三方用户信息'")
-    private String oauthUserInfo; // 第三方用户信息
+    @Column(columnDefinition = "varchar(20) comment '用户的语言，简体中文为zh_CN'")
+    private String language; // 用户的语言，简体中文为zh_CN
 
     @Column(columnDefinition = "datetime comment '创建时间'")
     private LocalDateTime createTime; // 创建时间
@@ -79,6 +83,14 @@ public class User implements Serializable {
         this.unionId = unionId;
     }
 
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
+    public void setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
+    }
+
     public String getOauthType() {
         return oauthType;
     }
@@ -95,52 +107,52 @@ public class User implements Serializable {
         this.nickName = nickName;
     }
 
-    public String getHeadImage() {
-        return headImage;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setHeadImage(String headImage) {
-        this.headImage = headImage;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
-    public String getAccessToken() {
-        return accessToken;
+    public Integer getGender() {
+        return gender;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setGender(Integer gender) {
+        this.gender = gender;
     }
 
-    public Long getExpiresIn() {
-        return expiresIn;
+    public String getCity() {
+        return city;
     }
 
-    public void setExpiresIn(Long expiresIn) {
-        this.expiresIn = expiresIn;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getRefreshToken() {
-        return refreshToken;
+    public String getProvince() {
+        return province;
     }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public String getScope() {
-        return scope;
+    public String getCountry() {
+        return country;
     }
 
-    public void setScope(String scope) {
-        this.scope = scope;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getOauthUserInfo() {
-        return oauthUserInfo;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setOauthUserInfo(String oauthUserInfo) {
-        this.oauthUserInfo = oauthUserInfo;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public LocalDateTime getCreateTime() {
