@@ -19,10 +19,20 @@
     </parent>
 
     <modules>
+        <!-- 客户WEB端##C端 -->
         <module>ngls-web-customer</module>
+        <!-- 管理WEB端##M端 -->
         <module>ngls-web-console</module>
+        <!-- 用户模块 -->
         <module>ngls-module-user</module>
+        <!-- 工具模块 -->
         <module>ngls-common-utils</module>
+        <!-- 基础模块 -->
+        <module>ngls-module-basic</module>
+        <!-- 保险模块 -->
+        <module>ngls-module-insurance</module>
+        <!-- 车辆管理模块 -->
+        <module>ngls-module-car</module>
     </modules>
 
     <properties>
@@ -32,6 +42,9 @@
         <ngls-web-console.version>0.0.1-SNAPSHOT</ngls-web-console.version>
         <ngls-module-user.version>0.0.1-SNAPSHOT</ngls-module-user.version>
         <ngls-common-utils.version>0.0.1-SNAPSHOT</ngls-common-utils.version>
+        <ngls-module-basic.version>0.0.1-SNAPSHOT</ngls-module-basic.version>
+        <ngls-module-insurance.version>0.0.1-SNAPSHOT</ngls-module-insurance.version>
+        <ngls-module-car.version>0.0.1-SNAPSHOT</ngls-module-car.version>
 
         <!-- 工程基础属性 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,6 +90,21 @@
                 <groupId>com.ngls</groupId>
                 <artifactId>ngls-common-utils</artifactId>
                 <version>${ngls-common-utils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ngls</groupId>
+                <artifactId>ngls-module-basic</artifactId>
+                <version>${ngls-module-basic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ngls</groupId>
+                <artifactId>ngls-module-insurance</artifactId>
+                <version>${ngls-module-insurance.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ngls</groupId>
+                <artifactId>ngls-module-car</artifactId>
+                <version>${ngls-module-car.version}</version>
             </dependency>
 
             <!-- MyBatis -->
