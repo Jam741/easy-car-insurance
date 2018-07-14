@@ -52,7 +52,7 @@ public class UserWebMvcConfigurer implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedHeaders("*")
-                .allowedMethods("GET,POST,OPTIONS,PUT,DELETE")
+                .allowedMethods("*")
                 .allowCredentials(true)
                 .maxAge(1800);
     }

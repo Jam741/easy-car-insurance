@@ -1,4 +1,4 @@
-package com.ngls.user.domain;
+package com.ngls.car.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

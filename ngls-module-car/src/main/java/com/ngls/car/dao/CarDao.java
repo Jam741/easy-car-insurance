@@ -1,4 +1,4 @@
-package com.ngls.user.dao;
+package com.ngls.car.dao;
 
 public interface CarDao {
 
