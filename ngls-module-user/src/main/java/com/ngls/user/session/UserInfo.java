@@ -80,11 +80,6 @@ public final class UserInfo implements Serializable {
         this.updateTime = userDto.getUpdateTime();
     }
 
-    @Override
-    public String toString() {
-        return PrintableBeanUtils.toString(this);
-    }
-
     public Long getId() {
         return id;
     }
@@ -195,5 +190,26 @@ public final class UserInfo implements Serializable {
 
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
+    }
+
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", openId='" + openId + '\'' +
+                ", unionId='" + unionId + '\'' +
+                ", sessionKey='" + sessionKey + '\'' +
+                ", oauthType='" + oauthType + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", gender=" + gender +
+                ", city='" + city + '\'' +
+                ", province='" + province + '\'' +
+                ", country='" + country + '\'' +
+                ", language='" + language + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }
