@@ -48,6 +48,9 @@ public class CustomerDto implements Serializable {
     @ApiModelProperty("用户会话信息")
     private UserSession userSession;
 
+    public CustomerDto() {
+    }
+
     public Long getId() {
         return id;
     }

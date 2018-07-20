@@ -4,10 +4,12 @@ package com.ngls.user.dto;
 import com.ngls.user.domain.GroupBooking;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.deser.std.TimestampDeserializer;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @ApiModel
 public class GroupBookingDto implements Serializable {
@@ -21,8 +23,9 @@ public class GroupBookingDto implements Serializable {
     @ApiModelProperty("车主姓名")
     private String ownerName;
 
+    @JsonDeserialize(using = TimestampDeserializer.class)
     @ApiModelProperty("车险到期时间")
-    private LocalDateTime lastDate;
+    private Date lastDate;
 
     @ApiModelProperty("车主电话号码")
     private String ownerPhone;
@@ -32,6 +35,10 @@ public class GroupBookingDto implements Serializable {
 
     @ApiModelProperty("上家投保公司信息")
     private Long companyId;
+
+
+    public GroupBookingDto() {
+    }
 
     public Long getUserId() {
         return userId;
@@ -77,13 +84,14 @@ public class GroupBookingDto implements Serializable {
         this.ownerName = ownerName;
     }
 
-    public LocalDateTime getLastDate() {
+    public Date getLastDate() {
         return lastDate;
     }
 
-    public void setLastDate(LocalDateTime lastDate) {
+    public void setLastDate(Date lastDate) {
         this.lastDate = lastDate;
     }
+
 
     public String getOwnerPhone() {
         return ownerPhone;

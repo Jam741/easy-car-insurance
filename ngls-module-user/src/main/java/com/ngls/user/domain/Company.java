@@ -24,6 +24,11 @@ public class Company implements Serializable {
     @Column(columnDefinition = "varchar(50) comment '主页'")
     private String home;
 
+
+    public Company() {
+    }
+
+
     public Long getId() {
         return id;
     }

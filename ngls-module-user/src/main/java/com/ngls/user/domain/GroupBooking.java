@@ -1,9 +1,13 @@
 package com.ngls.user.domain;
 
 
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.deser.std.TimestampDeserializer;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Entity
@@ -22,7 +26,7 @@ public class GroupBooking implements Serializable {
     private String ownerName;
 
     @Column(columnDefinition = "datetime comment '车险到期时间'")
-    private LocalDateTime lastDate;
+    private Date lastDate;
 
     @Column(columnDefinition = "varchar(18) comment '车主电话号码'")
     private String ownerPhone;
@@ -71,11 +75,11 @@ public class GroupBooking implements Serializable {
         this.ownerName = ownerName;
     }
 
-    public LocalDateTime getLastDate() {
+    public Date getLastDate() {
         return lastDate;
     }
 
-    public void setLastDate(LocalDateTime lastDate) {
+    public void setLastDate(Date lastDate) {
         this.lastDate = lastDate;
     }
 
